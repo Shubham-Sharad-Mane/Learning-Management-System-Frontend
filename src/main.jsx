@@ -5,7 +5,7 @@ import { UserContextProvider } from './context/UserContext.jsx'; // Importing Us
 import  {CourseContextProvider}from './context/CourseContext.jsx';
 
 //now we cerate the variable where we gave the server url where we featch the apis 
-export const server ='http://localhost:3000';
+export const server ='https://learning-management-system-backend-t7r4.onrender.com';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
