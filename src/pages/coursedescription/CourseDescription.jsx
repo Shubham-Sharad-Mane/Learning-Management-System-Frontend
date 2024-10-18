@@ -30,15 +30,15 @@ const CourseDescription=({user})=>{
         });
 
         const options={
-            key: "Razorpaykey", // Enter the Key ID generated from the Dashboard
-    amount: order.id, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            key: process.env.Razorpay_key, // Enter the Key ID generated from the Dashboard
+    amount: order.price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     currency: "INR",
     name: "E Learning", //your business name
     description: "Learn With Us",
     //image: "https://example.com/your_logo",
     order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 
-    handeler: async function(response){
+    handler: async function(response){
         const {razorpay_order_id,razorpay_payment_id,razorpay_signature}=response;
         try{
             const {data}= await axios.post(`${server}/api/verification/${params.id}`,{
