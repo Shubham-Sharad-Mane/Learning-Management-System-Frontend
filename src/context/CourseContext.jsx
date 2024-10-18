@@ -50,7 +50,7 @@ const CourseContextProvider=({children})=>{
                 return;
             }
             console.log(token);
-            const {data}=await axios.get(`${server}/api//mycourses`,{
+            const {data}=await axios.get(`${server}/api/mycourses`,{
                 headers:{
                      token:localStorage.getItem("token"),
                 },
