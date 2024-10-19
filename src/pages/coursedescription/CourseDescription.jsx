@@ -18,7 +18,8 @@ const CourseDescription=({user})=>{
 
     useEffect(()=>{
         fetchCourse(params.id) //all courses ae featched from the id of user
-    },[]);
+        fetchMyCourse();
+    },[params.id]);
 
     const checkoutHandeler= async()=>{
         const token=localStorage.getItem("token");
@@ -30,7 +31,7 @@ const CourseDescription=({user})=>{
         });
 
         const options={
-            key: process.env.Razorpay_key, // Enter the Key ID generated from the Dashboard
+            key: "rzp_test_j46GIb0KVZBpk7", // Enter the Key ID generated from the Dashboard
     amount: order.price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     currency: "INR",
     name: "E Learning", //your business name
@@ -90,7 +91,7 @@ const CourseDescription=({user})=>{
                  <p>{course.description}</p>
                  <p>Let's get started with course At ₹{course.price}</p>
                      {
-                         user && user.subscription.includes(course._id)? (<button onClick={()=>navigate(`/course/study/${course._id}`)} className="comman-btn"> Study </button>) : (<button onClick={checkoutHandeler} className="comman-btn"> Buy Now </button>)
+                         user && user.subscription && user.subscription.includes(course._id)? (<button onClick={()=>navigate(`/course/study/${course._id}`)} className="comman-btn"> Study </button>) : (<button onClick={checkoutHandeler} className="comman-btn"> Buy Now </button>)
                      }
              </div>
             }
