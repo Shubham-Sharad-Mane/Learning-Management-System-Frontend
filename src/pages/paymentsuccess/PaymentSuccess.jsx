@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./paymentSuccess.css";
 import { Link, useParams } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const PaymentSuccess=()=>{
     const params=useParams();
+    const {user}=useContext(UserContext);
     return(
         <div className="payment-success-page">
             {
