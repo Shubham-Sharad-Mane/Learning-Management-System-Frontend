@@ -1,6 +1,6 @@
 import React from "react"; //import the react from react
 import "./App.css"; //import the css for the app.css
-import {BrowserRouter , Routes ,Route} from "react-router-dom"; //import from the react router dom
+import {BrowserRouter , Routes ,Route, Navigate} from "react-router-dom"; //import from the react router dom
 import Home from "./pages/home/Home"; //import the home page
 import Header from "./components/header/Header"; //import the headers
 import Login from "./pages/auth/Login"; //import the login 
