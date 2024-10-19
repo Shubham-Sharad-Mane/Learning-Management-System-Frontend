@@ -133,7 +133,7 @@ export default function Lectures({user}){
 
     useEffect(()=>{
         fetchLectures()
-    },[]);
+    },[params.id]);
 
     useEffect(() => {
         console.log(lecture.video); // This should output the video URL
