@@ -34,7 +34,7 @@ const App=()=>{
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       {/* <Route path="/courses" element={<Courses/>}/> */}
-      <Route path="/courses" element={isAuth ? <Courses /> : <Navigate to="/login" />}/>
+      <Route path="/course/all" element={isAuth ? <Courses /> : <Navigate to="/login" />}/>
       <Route path="/account" element={isAuth?<Account user={user}/>:<Login/>}/>
       <Route path="/login" element={isAuth?<Home/>:<Login/>}/>
       <Route path="/register" element={isAuth?<Home/>:<Register/>}/>
