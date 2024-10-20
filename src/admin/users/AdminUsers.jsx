@@ -9,7 +9,7 @@ export default function AdminUsers({user}){
 
     const navigate=useNavigate();
 
-    if(user && user.role !== "admin")return navigate("/");
+    if(user && user.mainrole !== "superadmin")return navigate("/");
 
     const [users,setUsers]=useState([]);
 

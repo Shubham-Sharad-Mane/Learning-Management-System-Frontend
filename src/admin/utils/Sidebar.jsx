@@ -5,8 +5,10 @@ import { AiFillHome } from "react-icons/ai";
 import { FaBook } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
+import { UserData } from "../../context/UserContext";
 
 export default function Sidebar(){ //we use the childern as a props because we want to wrap it 
+    const {user}=UserData();
     return (
         <div className="sidebar">
 
@@ -19,14 +21,18 @@ export default function Sidebar(){ //we use the childern as a props because we w
                     <span>Home</span>
                 </Link>
             </li>
-            <li>
-            <Link to={`/admin/course`} >
-                    <div className="icon">
-                        <FaBook/>
-                    </div>
-                    <span>Courses</span>
-                </Link>
-            </li>
+           {
+            user && user.mainrole === "superadmin" && (
+                <li>
+                <Link to={`/admin/course`} >
+                        <div className="icon">
+                            <FaBook/>
+                        </div>
+                        <span>Courses</span>
+                    </Link>
+                </li>
+            )
+           }
             <li>
             <Link to={`/admin/users`} >
                     <div className="icon">
