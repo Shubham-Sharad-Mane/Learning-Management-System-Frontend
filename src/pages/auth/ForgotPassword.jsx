@@ -20,7 +20,10 @@ export default function ForgotPassword() {
       navigate("/login");
       setBtnLoading(false);
     }catch(error){
-      toast.error(error.response.data.message);
+      console.error("Error response:", error.response);
+      const errorMessage = error.response?.data?.message || "Something went wrong. Please try again.";
+      toast.error(errorMessage);
+      // toast.error(error.response.data.message);
       setBtnLoading(false);
     }
   }
