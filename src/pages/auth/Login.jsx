@@ -31,10 +31,13 @@ export default function Login(){
                 <label htmlFor="password">password</label>
                 <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}required />
 
-                <button disabled={btnLoading} className="comman-btn" type="submit">Login {btnLoading? "please wait ..." : "Login"}</button>
+                <button disabled={btnLoading} className="comman-btn" type="submit">{btnLoading? "please wait ..." : "Login"}</button>
             </form>
             <p>
                 Don't Have an Account? <Link to={"/register"}>Register</Link>
+            </p>
+            <p>
+                <Link to={"/forgot"}>Forgot Password ? </Link>
             </p>
         </div>
 

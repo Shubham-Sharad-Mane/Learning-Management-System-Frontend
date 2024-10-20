@@ -21,6 +21,8 @@ import Lectures from "./pages/lectures/Lectures"; //import the function for the 
 import AdminDashboard from "./admin/dashboard/AdminDashboard"; //import the admin dashboard
 import AdminCourses from "./admin/courses/AdminCourses"; 
 import AdminUsers from "./admin/users/AdminUsers";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
 const App=()=>{
   const { user,isAuth,loading } = useContext(UserContext); // Directly use useContext to access UserContext
   console.log(user);
@@ -39,6 +41,8 @@ const App=()=>{
       <Route path="/login" element={isAuth?<Home/>:<Login/>}/>
       <Route path="/register" element={isAuth?<Home/>:<Register/>}/>
       <Route path="/verify" element={isAuth?<Home/>:<Verify/>}/>
+      <Route path="/forgot" element={isAuth?<Home/>:<ForgotPassword/>}/>
+      <Route path="/reset-password" element={isAuth?<Home/>:<ResetPassword/>}/>
       <Route path="/course/:id" element={isAuth?<CourseDescription user={user}/>:<Login/>}/>
       <Route path="/payment-success/:id" element={isAuth?<PaymentSuccess user={user}/>:<Login/>}/>
       <Route path="/:id/dashboard" element={isAuth?<Dashboard user={user}/>:<Login/>}/>

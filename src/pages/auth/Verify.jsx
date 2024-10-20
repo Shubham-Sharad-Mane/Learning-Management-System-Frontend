@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import ReCAPTCHA from "react-google-recaptcha";
 export default function Verify(){
     const [otp,setOtp]=useState("");//create the use state for the otp and pass empty sting firstofall
-
+    const [show,setShow]=useState(false);
     // const {btnLoading , VerifyOtp}= useContext(UserContext);
     // const navigate=useNavigate();
 
@@ -16,6 +17,11 @@ export default function Verify(){
 
     const { btnLoading, verifyOtp } = useContext(UserContext); // Destructure context values
     const navigate = useNavigate();
+
+    function onChange(value) {
+        console.log("Captcha value:", value);
+        setShow(true);
+      }
 
     const submitHandeler = async (e) => {
         e.preventDefault();
@@ -46,7 +52,8 @@ export default function Verify(){
                     <label htmlFor="otp">Otp</label>
                     <input type="number" value={otp} onChange={(e)=>setOtp(e.target.value)} required />
                     {error && <p className="error-message">{error}</p>} {/* Show error message if exists */}
-                    <button disabled={btnLoading} type="submit" className="comman-btn">{btnLoading?"Please Wait...":"Verify"}</button>
+                    <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={onChange}/>
+                    { show && (<button disabled={btnLoading} type="submit" className="comman-btn">{btnLoading?"Please Wait...":"Verify"}</button>)}
                 </form>
                 <p>
                     Go to <Link to="/login">Login</Link> page
