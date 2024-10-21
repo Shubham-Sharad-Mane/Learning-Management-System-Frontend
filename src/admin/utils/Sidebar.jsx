@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./comman.css";
 import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaBook } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
-import { UserData } from "../../context/UserContext";
+import { UserContext, UserData } from "../../context/UserContext";
 
 export default function Sidebar(){ //we use the childern as a props because we want to wrap it 
-    const {user}=UserData();
+    const {user}=useContext(UserContext);
     return (
         <div className="sidebar">
 
