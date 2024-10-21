@@ -21,8 +21,7 @@ export default function Sidebar(){ //we use the childern as a props because we w
                     <span>Home</span>
                 </Link>
             </li>
-           {
-            user && user.mainrole === "superadmin" && (
+           
                 <li>
                 <Link to={`/admin/course`} >
                         <div className="icon">
@@ -31,8 +30,9 @@ export default function Sidebar(){ //we use the childern as a props because we w
                         <span>Courses</span>
                     </Link>
                 </li>
-            )
-           }
+            
+           {
+            user && user.mainrole === "superadmin" && (
             <li>
             <Link to={`/admin/users`} >
                     <div className="icon">
@@ -41,6 +41,8 @@ export default function Sidebar(){ //we use the childern as a props because we w
                     <span>Users</span>
                 </Link>
             </li>
+            )
+        }
             <li>
             <Link to={`/account`} >
                     <div className="icon">
